@@ -26,6 +26,7 @@ public class HomeServiceImpl  implements IHomeService	{
    MenuDao menuDao;
    @Autowired
    ProductsDao productsDao;
+
    
 	@Override
 	public List<Slides> GetDataSlides() {
@@ -52,5 +53,4 @@ public class HomeServiceImpl  implements IHomeService	{
 		List<ProductDto> lstProducts = productsDao.GetProducts();
 		return lstProducts;
 	}
-
 }

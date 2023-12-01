@@ -1,4 +1,4 @@
-package com.ngs.parsecv.dto;
+ package com.ngs.parsecv.dto;
 
 public class CartDto {
 	private int quantity;

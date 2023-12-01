@@ -5,208 +5,165 @@
 <%@ page session="true"%>
 <title>Trang chủ</title>
 <body>
-<!-- 
-Body Section 
--->
-	<div class="row">
-<div id="sidebar" class="span3">
-<div class="well well-small">
-	<ul class="nav nav-list">
-		<c:forEach var="item" items="${lstCategory}">
-			<li><a href='<c:url value="/san-pham/${item.id }"></c:url>'><span class="icon-circle-blank"></span>${item.name}</a></li>
-		</c:forEach>
-		<li style="border:0"> &nbsp;</li>
-		<li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;"><p><fmt:formatNumber type="number"  groupingUsed="true" value="${TotalPrice}" />₫</p></span></strong></a></li>
-	</ul>
-</div>
-
-			  <div class="well well-small alert alert-warning cntr">
-				  <h2>50% Discount</h2>
-				  <p> 
-					 only valid for online order. <br><br><a class="defaultBtn" href="#">Click here </a>
-				  </p>
-			  </div>
-			  <div class="well well-small" ><a href="#"><img src="<c:url value="/resources/assets/img/paypal.jpg"></c:url>" alt="payment method paypal"></a></div>
-			
-			<a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
-			<br>
-			<br>
-			<ul class="nav nav-list promowrapper">
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<c:url value="/resources/assets/img/bootstrap-ecommerce-templates.PNG"></c:url>" alt="bootstrap ecommerce templates">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
-			<li style="border:0"> &nbsp;</li>
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<c:url value="/resources/assets/img/shopping-cart-template.PNG"></c:url>" alt="shopping cart template">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
-			<li style="border:0"> &nbsp;</li>
-			<li>
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<img src="<c:url value="/resources/assets/img/bootstrap-template.png"></c:url>" alt="bootstrap template">
-				<div class="caption">
-				  <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span class="pull-right">$22.00</span></h4>
-				</div>
-			  </div>
-			</li>
-		  </ul>
-
-	</div>
-	<div class="span9">
-	<div class="well np">
-		<div id="myCarousel" class="carousel slide homCar">
-            <div class="carousel-inner">
-              <c:forEach var="item" items="${lstSlides}" varStatus="index">
-              	<c:if test="${index.first}">
-              		<div class="item active">
-              	</c:if>
-              	<c:if test="${ not index.first}">
-              		<div class="item">
-              	</c:if>
-	                <img style="width:100%" src="<c:url value="/resources/assets/img/${item.img}"></c:url>" alt="bootstrap ecommerce templates">
-	                <div class="carousel-caption">
-	                      <h4>${item.caption }</h4>
-	                      <p><span>${item.content }</span></p>
-	                </div>
-              	</div>
-              </c:forEach>
-              <div class="item">
-                <img style="width:100%" src="<c:url value="/resources/assets/img/bootstrap_free-ecommerce.png"></c:url>" alt="bootstrap ecommerce templates">
-                <div class="carousel-caption">
-                      <h4>Bootstrap shopping cart</h4>
-                      <p><span>Very clean simple to use</span></p>
-                </div>
-              </div>
-            </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+<main class="app-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="app-title">
+          <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><a href="#"><b></b></a></li>
+          </ul>
+          <div id="clock"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!--Left-->
+      <div class="col-md-12 col-lg-6">
+        <div class="row">
+       <!-- col-6 -->
+       <div class="col-md-6">
+        <div class="widget-small primary coloured-icon"><i class='icon bx bxs-user-account fa-3x'></i>
+          <div class="info">
+            <h4>Tổng số ứng viên</h4>
+            <p><b>249 ứng viên</b></p>
+            <p class="info-tong">Tổng số ứng viên được upload</p>
           </div>
         </div>
-<!--
-New Products
--->
-	<div class="well well-small">
-	<h3>Sản phẩm mới </h3>
-	<hr class="soften"/>
-		<div class="row-fluid">
-		<div id="newProductCar" class="carousel slide">
-            <div class="carousel-inner">
-			<div class="item active">
-			  <ul class="thumbnails">
-				<li class="span3">
-				<div class="thumbnail">
-					<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-					<a href="#" class="tag"></a>
-					<a href="product_details.html"><img src="<c:url value="/resources/assets/img/bootstrap-ring.png"></c:url>" alt="bootstrap-ring"></a>
-				</div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-					<a href="#" class="tag"></a>
-					<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/i.jpg"></c:url>" alt=""></a>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-					<a href="#" class="tag"></a>
-					<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/g.jpg"></c:url>" alt=""></a>
-				  </div>
-				</li>
-				<li class="span3">
-				  <div class="thumbnail">
-					<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-					<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/s.png"></c:url>" alt=""></a>
-				  </div>
-				</li>
-			  </ul>
-			  </div>
-		   <div class="item">
-		  <ul class="thumbnails">
-			<li class="span3">
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/i.jpg"></c:url>" alt=""></a>
-			  </div>
-			</li>
-			<li class="span3">
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/j.jpg"></c:url>" alt=""></a>
-			  </div>
-			</li>
-			<li class="span3">
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/h.jpg"></c:url>" alt=""></a>
-			  </div>
-			</li>
-			<li class="span3">
-			  <div class="thumbnail">
-				<a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-				<a  href="product_details.html"><img src="<c:url value="/resources/assets/img/j.jpg"></c:url>" alt=""></a>
-			  </div>
-			</li>
-		  </ul>
-		  </div>
-		   </div>
-		  <a class="left carousel-control" href="#newProductCar" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
-		  </div>
-		  </div>
-	</div>
-	<!--
-	Featured Products
-	-->
-		<div class="well well-small">
-		  <h3><a class="btn btn-mini pull-right" href="products.html" title="View more">VIew More<span class="icon-plus"></span></a> Sản phẩm nổi bật  </h3>
-		  <hr class="soften"/>
-		  <div class="row-fluid">
-		  <c:if test="${lstProducts.size() > 0 }">
-		  	<c:forEach var="item" items="${lstProducts }" varStatus="loop">
-		  		<c:if test="${loop.index == 0 || loop.index % 3 == 1}">
-		  			<ul class="thumbnails">
-		  		</c:if>
-		  		<li class="span4">
-					  <div class="thumbnail">
-						<a class="zoomTool" href="#" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-						<a  href="chi-tiet-san-pham/${item.id}"><img src="<c:url value="/resources/assets/img/${item.image }"></c:url>" alt=""></a>
-						<div class="caption">
-						  <h5>${item.name}</h5>
-						  <h4>
-							  <a class="defaultBtn" href="product_details.html" title="Click to view"><span class="icon-zoom-in"></span></a>
-							  <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
-							  <span class="pull-right"><p><fmt:formatNumber type="number"  groupingUsed="true" value="${item.price}" />₫</p></span>
-						  </h4>
-						</div>
-					  </div>
-				</li>
-				<c:if test="${(loop.index + 1) % 3  == 0 || (loop.index + 1 )== lstProducts.size()}">
-					</u>
-				</c:if>
-		  	</c:forEach>	
-		  </c:if>
+      </div>
+           <div class="col-md-12">
+            <div class="tile">
+                <h3 class="tile-title">Ứng viên tiềm năng</h3>
+              <div>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>ID ứng viên</th>
+                      <th>Tên ứng viên</th>
+                      <th>Tiền năng</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#123</td>
+                      <td>Phạm Thị Ngọc</td>
+                      <td>
+                        89%
+                      </td>
+                      <td><span class="badge bg-info">Chờ phỏng vấn</span></td>
+                    </tr>
+                    <tr>
+                      <td>#111</td>
+                      <td>Nguyễn Thị Mỹ Yến</td>
+                      <td>
+                        80%	
+                      </td>
+                      <td><span class="badge bg-info">Chờ phỏng vấn</span></td>
+                    </tr>
+                    <tr>
+                      <td>#230</td>
+                      <td>Triệu Thanh Phú</td>
+                      <td>
+                        95%	
+                      </td>
+                      <td><span class="badge bg-success">Đã phỏng vấn</span></td>
+                    </tr>
+                    <tr>
+                      <td>#222</td>
+                      <td>Đặng Hoàng Phúc	</td>
+                      <td>
+                        85%	
+                      </td>
+                      <td><span class="badge bg-success">Đã phỏng vấn</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- / div trống-->
+            </div>
+           </div>
+            <!-- / col-12 -->
+             <!-- col-12 -->
+            <div class="col-md-12">
+                <div class="tile">
+                  <h3 class="tile-title">Ứng viên mới</h3>
+                <div>
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Tên ứng viên</th>
+                        <th>Ngày sinh</th>
+                        <th>Số điện thoại</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>#246</td>
+                        <td>Nguyễn Văn Nam</td>
+                        <td>21/7/1992</td>
+                        <td><span class="tag tag-success">0921387221</span></td>
+                      </tr>
+                      <tr>
+                        <td>#247</td>
+                        <td>Trần Đình Trung</td>
+                        <td>30/4/1975</td>
+                        <td><span class="tag tag-warning">0912376352</span></td>
+                      </tr>
+                      <tr>
+                        <td>#248</td>
+                        <td>Nguyễn Hải Anh</td>
+                        <td>12/3/1999</td>
+                        <td><span class="tag tag-primary">01287326654</span></td>
+                      </tr>
+                      <tr>
+                        <td>#249</td>
+                        <td>Đoàn Hồng</td>
+                        <td>4/12/20000</td>
+                        <td><span class="tag tag-danger">0912376763</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-	</div>
-	</div>
-	
-	<div class="well well-small">
-	<a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
-	Tất cả sản phẩm
-	</div>	
-	</div>
-	</div>
+              </div>
+            </div>
+             <!-- / col-12 -->
+        </div>
+      </div>
+      <!--END left-->
+      <!--Right-->
+      <div class="col-md-12 col-lg-6">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tile">
+              <h3 class="tile-title">Dữ liệu file upload</h3>
+              <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="tile">
+              <h3 class="tile-title">Tỷ lệ bóc tách ứng viên thành công</h3>
+              <div class="embed-responsive embed-responsive-16by9">
+                <canvas class="embed-responsive-item" id="barChartDemo"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--END right-->
+    </div>
+
+
+    <div class="text-center" style="font-size: 13px">
+      <p><b>Copyright
+          <script type="text/javascript">
+            document.write(new Date().getFullYear());
+          </script> Phần mềm quản lý bán hàng | Dev By Trường
+        </b></p>
+    </div>
+  </main>
 </body>

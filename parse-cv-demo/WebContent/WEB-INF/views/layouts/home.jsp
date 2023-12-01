@@ -4,107 +4,120 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title><decorator:title default="Master-layout"></decorator:title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap styles -->
-    <link href="<c:url value="/resources/assets/css/bootstrap.css"></c:url>" rel="stylesheet"/>
-    <!-- Customize styles -->
-    <link href="<c:url value="/resources/assets/css/style.css"></c:url>" rel="stylesheet"/>
-    <!-- font awesome styles -->
-	<link href= "<c:url value="/resources/assets/font-awesome/css/font-awesome.css"></c:url>" rel="stylesheet">
-	<!-- Favicons -->
-    <link rel="shortcut icon" href="<c:url value="/resources/assets/ico/favicon.ico"></c:url>">
-  	<decorator:head></decorator:head>
-  </head>
-<body>
-<!-- 
-	Upper Header Section 
--->
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="topNav">
-		<div class="container">
-			<div class="alignR">
-				<div class="pull-left socialNw">
-					<a href="#"><span class="icon-twitter"></span></a>
-					<a href="#"><span class="icon-facebook"></span></a>
-					<a href="#"><span class="icon-youtube"></span></a>
-					<a href="#"><span class="icon-tumblr"></span></a>
-				</div>
-				<a class="active" href="index.html"> <span class="icon-home"></span> Home</a> 
-				<a href="#"><span class="icon-user"></span> My Account</a> 
-				<a href="register.html"><span class="icon-edit"></span> Free Register </a> 
-				<a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-				<a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
-			</div>
-		</div>
-	</div>
-</div>
 
-<!--
-Lower Header Section 
--->
-<div class="container">
-<div id="gototop"> </div>
+<head>
+  <title>Danh sách nhân viên | Quản trị Admin</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main CSS-->
+  <link rel="stylesheet" href="<c:url value="/resources/assets/css/main.css"/>">
+  <link rel="stylesheet" href="<c:url value="/resources/assets/css/all.css"/>">
+  <link rel="stylesheet" href="<c:url value="/resources/assets/css/boxicons.min.css"/>">
+  <!-- or -->
+   <link rel="stylesheet" href="<c:url value="/resources/assets/css/boxicons1.min.css"/>">
+  <!-- Font-icon css-->
+  <link rel="stylesheet" href="<c:url value="/resources/assets/css/font-awesome.min.css"/>">
+  <link rel="stylesheet" href="<c:url value="/resources/assets/css/all.css"/>">
+  <link rel="stylesheet" href="<c:url value="/resources/assets/css/jquery-confirm.min.css"/>">
+  
+  <script src="<c:url value="/resources/assets/js/jquery-3.2.1.min.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/boxicons.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/bootstrap.min.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/main.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/popper.min.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/plugins/chart.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/sweetalert.min.js"/>"></script>
+  <!--===============================================================================================-->
+  <script src="<c:url value="/resources/assets/js/iconify-icon.min.js"/>"></script>
+</head>
+
+<body onload="time()" class="app sidebar-mini rtl">
+  <!-- Navbar-->
 	<!--  Header -->
 	<%@include file="/WEB-INF/views/layouts/home/header.jsp" %>
-	<decorator:body></decorator:body>
-<!-- 
-Clients 
--->
-<section class="our_client">
-	<hr class="soften"/>
-	<h4 class="title cntr"><span class="text">Manufactures</span></h4>
-	<hr class="soften"/>
-	<div class="row">
-		<div class="span2">
-			<a href="#"><img alt="" src="<c:url value="/resources/assets/img/1.png"></c:url>"></a>
-		</div>
-		<div class="span2">
-			<a href="#"><img alt="" src="<c:url value="/resources/assets/img/2.png"></c:url>"></a>
-		</div>
-		<div class="span2">
-			<a href="#"><img alt="" src="<c:url value="/resources/assets/img/3.png"></c:url>"></a>
-		</div>
-		<div class="span2">
-			<a href="#"><img alt="" src="<c:url value="/resources/assets/img/4.png"></c:url>"></a>
-		</div>
-		<div class="span2">
-			<a href="#"><img alt="" src="<c:url value="/resources/assets/img/5.png"></c:url>"></a>
-		</div>
-		<div class="span2">
-			<a href="#"><img alt="" src="<c:url value="/resources/assets/img/6.png"></c:url>"></a>
-		</div>
-	</div>
-</section>
+  	<%@include file="/WEB-INF/views/layouts/home/footer.jsp" %>
+  	<decorator:body></decorator:body>
 
-<!--
-Footer
--->
-<%@include file="/WEB-INF/views/layouts/home/footer.jsp" %>
-</div><!-- /container -->
+  <script type="text/javascript">
+    var data = {
+      labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6"],
+      datasets: [{
+        label: "Dữ liệu đầu tiên",
+        fillColor: "rgba(255, 213, 59, 0.767), 212, 59)",
+        strokeColor: "rgb(255, 212, 59)",
+        pointColor: "rgb(255, 212, 59)",
+        pointStrokeColor: "rgb(255, 212, 59)",
+        pointHighlightFill: "rgb(255, 212, 59)",
+        pointHighlightStroke: "rgb(255, 212, 59)",
+        data: [20, 59, 90, 51, 56, 100]
+      },
+      {
+        label: "Dữ liệu kế tiếp",
+        fillColor: "rgba(9, 109, 239, 0.651)  ",
+        pointColor: "rgb(9, 109, 239)",
+        strokeColor: "rgb(9, 109, 239)",
+        pointStrokeColor: "rgb(9, 109, 239)",
+        pointHighlightFill: "rgb(9, 109, 239)",
+        pointHighlightStroke: "rgb(9, 109, 239)",
+        data: [48, 48, 49, 39, 86, 10]
+      }
+      ]
+    };
+    var ctxl = $("#lineChartDemo").get(0).getContext("2d");
+    var lineChart = new Chart(ctxl).Line(data);
 
-<div class="copyright">
-<div class="container">
-	<p class="pull-right">
-		<a href="#"><img src="<c:url value="/resources/assets/img/maestro.png"></c:url>" alt="payment"></a>
-		<a href="#"><img src="<c:url value="/resources/assets/img/mc.png"></c:url>" alt="payment"></a>
-		<a href="#"><img src="<c:url value="/resources/assets/img/pp.png"></c:url>" alt="payment"></a>
-		<a href="#"><img src="<c:url value="/resources/assets/img/visa.png"></c:url>" alt="payment"></a>
-		<a href="#"><img src="<c:url value="/resources/assets/img/disc.png"></c:url>" alt="payment"></a>
-	</p>
-	<span>Copyright &copy; 2013<br> bootstrap ecommerce shopping template</span>
-</div>
-</div>
-<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<c:url value="/resources/assets/js/jquery.js"></c:url>"></script>
-	<script src="<c:url value="/resources/assets/js/bootstrap.min.js"></c:url>"></script>
-	<script src="<c:url value="/resources/assets/js/jquery.easing-1.3.min.js"></c:url>"></script>
-    <script src="<c:url value="/resources/assets/js/jquery.scrollTo-1.4.3.1-min.js"></c:url>"></script>
-    <script src="<c:url value="/resources/assets/js/shop.js"></c:url>"></script>
-  </body>
+    var ctxb = $("#barChartDemo").get(0).getContext("2d");
+    var barChart = new Chart(ctxb).Bar(data);
+  </script>
+  <script type="text/javascript">
+    //Thời Gian
+    function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+        '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    }
+  </script>
+</body>
+
 </html>
